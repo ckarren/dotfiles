@@ -1,0 +1,231 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2022 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg@outlook.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "everforest"
+    colorscheme_bg = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    # guifont = "Source Code Pro for Powerline"
+    # guifont = "Space Mono for Powerline"
+    guifont = "Anonymous Pro for Powerline"
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    statusline_left = [
+      'winnr', 
+      'filename', 
+      # 'fileformat',
+      'version control info' 
+      ]
+    statusline_right = [
+    'syntax checking', 
+    'percentage', 
+    'battery status',
+    'cursorpos']
+    bootstrap_before = 'myspacevim#before'
+    autocomplete_method = 'nvim-cmp'
+    # snippet_engine = 'ultisnips'
+    disabled_plugins = ['ultisnips', 'ale', 'deoplete', 'jedi', 'deoplete-jedi']
+    bootstrap_after = 'myspacevim#after'
+    leader_guide_theme = 'whichkey'
+    enable_vimfiler_welcome = false
+
+# [[custom_plugins]]
+# repo = 'davidhalter/jedi-vim'
+
+# [[custom_plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# repo = 'deoplete-plugins/deoplete-jedi'
+# [[custom_plugins]]
+
+[[custom_plugins]]
+repo = 'arakkkkk/kanban.nvim'
+merged = false
+
+[[custom_plugins]]
+repo = 'nvim-telescope/telescope-file-browser.nvim'
+merged = false
+
+[[custom_plugins]]
+repo = 'sainnhe/everforest'
+merged = false
+
+[[custom_plugins]]
+repo = 'neovim/nvim-lspconfig'
+merged = false
+
+[[custom_plugins]]
+repo = 'chrisgrieser/nvim-spider'
+merged = false
+
+[[custom_plugins]]
+repo = 'hrsh7th/cmp-nvim-lsp'
+merged = false
+
+[[custom_plugins]]
+repo = 'hrsh7th/cmp-buffer'
+merged = false
+
+[[custom_plugins]]
+repo = 'hrsh7th/cmp-path'
+merged = false
+
+[[custom_plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+merged = false
+
+[[custom_plugins]]
+repo = 'hrsh7th/nvim-cmp'
+merged = false
+
+[[custom_plugins]]
+repo = 'L3MON4D3/LuaSnip'
+
+[[custom_plugins]]
+repo ='saadparwaiz1/cmp_luasnip'
+
+[[custom_plugins]]
+repo = 'molleweide/LuaSnip-snippets.nvim'
+
+[[custom_plugins]]
+repo = 'rafamadriz/friendly-snippets'
+
+[[custom_plugins]]
+repo = 'SirVer/ultisnips'
+merged = false
+
+[[custom_plugins]]
+repo = 'lervag/vimtex'
+merged = false
+
+# [[custom_plugins]]
+# repo = 'micangl/cmp-vimtex'
+# merged = false
+
+[[custom_plugins]]
+repo = 'sainnhe/edge'
+merged = false
+
+[[custom_plugins]]
+repo = 'quangnguyen30192/cmp-nvim-ultisnips'
+merged = false
+
+# [[custom_plugins]]
+# repo = 'chrisbra/csv.vim'
+# merged = false
+
+[[custom_plugins]]
+repo = 'nvim-neorg/neorg'
+merged = false
+
+[[custom_plugins]]
+repo = 'nvim-telescope/telescope-bibtex.nvim'
+merged = false
+
+[[custom_plugins]]
+repo = 'jghauser/papis.nvim'
+merged = false
+
+[[custom_plugins]]
+repo = 'catppuccin/nvim'
+merged = false
+
+# dependendecies for papis.nvim
+[[custom_plugins]]
+repo = "kkharji/sqlite.lua"
+merged = false
+[[custom_plugins]]
+repo = "nvim-lua/plenary.nvim"
+merged = false
+[[custom_plugins]]
+repo = "MunifTanjim/nui.nvim"
+merged = false
+[[custom_plugins]]
+repo = "nvim-treesitter/nvim-treesitter"
+merged = false
+
+# Enable autocomplete layer
+# [[layers]]
+# name = 'autocomplete'
+# auto_completion_return_key_behavior = "complete"
+# auto_completion_tab_key_behavior = "smart"
+#
+[[layers]]
+name = 'checkers'
+show_cursor_error = false
+lint_on_the_fly = false
+# lint_exclude_filetype = ['tex']
+
+[[layers]]
+name = 'shell'
+default_position = 'bottom'
+default_height = 20
+
+[[layers]]
+name = 'lang#python'
+python_interpreter = 'C:\Python312\python.exe'
+# python
+# enabled_linters = ['python']#, 'pylint']
+
+[[layers]]
+name = 'lsp'
+enabled_clients = ['pylsp', 'texlab']# , 'lua-lsp',
+# 'vscode-markdown-langaugeserver', 'vim-language-server']
+
+[[layers]]
+name = 'lang#latex'
+
+[[layers]]
+name = 'lang#lua'
+
+[[layers]]
+name = 'lang#markdown'
+
+[[layers]]
+name = 'github'
+
+[[layers]]
+name = 'git'
+
+[[layers]]
+name = 'lang#org'
+
+[[layers]]
+name = 'colorscheme'
+
+[[layers]]
+name = 'VersionControl'
+
+[[layers]]
+name = 'telescope'
+
+[[layers]]
+name = 'treesitter'
+
+[[layers]]
+name = 'exprfold'
+
+[[layers]]
+name = 'lang#julia'
+
+# [[layers]]
+# name = 'mail'
+# imap_host = 'imap.gmail.com'
+# imap_port = '993'
+# imap_login = 'ckarren@ncsu.edu'
+# imap_password = 'rdun akvi wruh aeoc'
