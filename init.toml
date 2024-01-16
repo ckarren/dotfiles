@@ -27,16 +27,17 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
     statusline_left = [
-      'winnr', 
+      # 'winnr',
       'filename', 
       # 'fileformat',
-      'version control info' 
+      'version control info'
       ]
     statusline_right = [
-    'syntax checking', 
-    'percentage', 
-    'battery status',
-    'cursorpos']
+    # 'syntax checking',
+    'percentage',
+    'battery', 
+    'cursorpos'
+    ]
     bootstrap_before = 'myspacevim#before'
     autocomplete_method = 'nvim-cmp'
     # snippet_engine = 'ultisnips'
@@ -234,6 +235,10 @@ name = 'exprfold'
 
 [[layers]]
 name = 'lang#julia'
+
+[[layers]]
+name = 'core#statusline'
+# enable = false
 
 # [[layers]]
 # name = 'mail'
