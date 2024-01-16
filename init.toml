@@ -113,9 +113,21 @@ merged = false
 repo = 'lervag/vimtex'
 merged = false
 
+[[custom_plugins]]
+repo = 'justinhj/battery.nvim'
+merged = false
+
+[[custom_plugins]]
+repo = 'lervag/vimtex'
+merged = false
+
 # [[custom_plugins]]
 # repo = 'micangl/cmp-vimtex'
 # merged = false
+
+[[custom_plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+merged = false
 
 [[custom_plugins]]
 repo = 'sainnhe/edge'

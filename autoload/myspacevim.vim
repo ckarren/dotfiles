@@ -11,6 +11,7 @@ function! myspacevim#before() abort
   let g:spacevim_enable_ycm = 0
   let g:agenda_files = split(glob("~/OneDrive - North Carolina State University/org_files/*.org"),"\n")
   let g:vimtex_view_method = 'sioyek'
+  
   let g:jedi#completions_enabled = 0
   " let g:everforest_background = 'soft'
   " Use deoplete.
@@ -19,7 +20,7 @@ function! myspacevim#before() abort
   nnoremap <leader>ff <cmd>Telescope find_files <cr>
   nnoremap <leader>fg <cmd>Telescope live_grep<cr>
   nnoremap <leader>fb <cmd>Telescope buffers<cr>
-  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr
   nnoremap <leader>fw <cmd>Telescope file_browser hidden=true<cr>
   nnoremap <leader>fx <cmd>Telescope bibtex<cr>
   inoremap kj <Esc>
@@ -127,10 +128,14 @@ lua << EOF
         -- Wrapping in the preview window is disabled by default
         wrap = true,
       },
+      file_browser = {
+        grouped = true,
+      },
     }
   }
   require"telescope".load_extension("bibtex")
   require"telescope".load_extension("file_browser")
+
 
   --require("cmp_nvim_ultisnips").setup{}
   local luasnip = require("luasnip")
@@ -181,8 +186,8 @@ lua << EOF
       end,
     },
     window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
+       completion = cmp.config.window.bordered(),
+       documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-j>'] = cmp.mapping.select_next_item({ count = 1 }),
@@ -212,6 +217,7 @@ lua << EOF
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
       { name = 'neorg' },
+      -- { name = 'vimtex'},
     }, {
       { name = 'buffer' },
     })
@@ -244,6 +250,19 @@ lua << EOF
   require('lspconfig')['texlab'].setup{
     capabilities = capabilities
   }
+
+  local cfg = {
+     bind = true,
+     doc_lines = 5,
+     floating_window = true,
+     hint_enable = true,
+     handler_opts = {border='single'},
+     extra_trigger_chars = {"(", ","},
+     wrap = true,
+     padding = ' ',
+     toggle_key = '<C-x>',
+     }
+   require("lsp_signature").setup(cfg, bufnr)
 
 -- Papis
   require("papis").setup({
@@ -306,7 +325,7 @@ lua << EOF
     },
     init_filenames = {"%info_name%", "*.md"} --, "*.tex"},
   })
-require('neorg').setup {
+  require('neorg').setup {
     load = {
         ["core.defaults"] = {}, -- Loads default behaviour
         ["core.completion"] = {
@@ -333,13 +352,24 @@ require('neorg').setup {
             },
         },
     },
-}
-require('kanban').setup({
-  markdown = {
-    description_folder = "./tasks/",
-    list_head = '## ',
   }
-})
+  require('kanban').setup({
+    markdown = {
+      description_folder = "./tasks/",
+      list_head = '## ',
+    }
+  })
+  local battery = require("battery")
+  battery.setup({
+    update_rate_seconds = 120,          -- Number of seconds between checking battery status
+    show_status_when_no_battery = true, -- Don't show any icon or text when no battery found (desktop for example)
+    show_plugged_icon = true,           -- If true show a cable icon alongside the battery icon when plugged in
+    show_unplugged_icon = false,        -- When true show a diconnected cable icon when not plugged in
+    show_percent = true,                -- Whether or not to show the percent charge remaining in digits
+      vertical_icons = true,              -- When true icons are vertical, otherwise shows horizontal battery icon
+      multiple_battery_selection = 1,     -- Which battery to choose when multiple found. "max" or "maximum", "min" or "minimum" or a number to pick the nth battery found (currently linux acpi only)
+  })
+  require"battery".get_status_line()
 EOF
 endfunction
 
